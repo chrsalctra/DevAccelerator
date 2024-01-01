@@ -2,7 +2,7 @@ package CA_java_udemy;
 
 public class TestFloat{
 public static void main(String[] args){
-    int number1= 10.128952248;
+    double number1= 10.128952248;
     float number2 = 10.128952248f;
     double number3 = 10.128952248d;
  
