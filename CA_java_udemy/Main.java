@@ -1,8 +1,13 @@
 //program demonstrating linkedlist, 
 package CA_java_udemy;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
-
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.Map;
+import java.util.HashMap;
 class Data { // Using Object wrapper class
     private Object object;
 
@@ -65,5 +70,39 @@ public class Main {
         Data2<Integer, String> data = new Data2<>(10, "Chris");
         System.out.println(data.getKey() + "<_key , value_>" + data.getValue());
         data.display("Test", 26); // method
+        // Queue (standard):
+        //Queue queue = new LinkedBlockingDeque<>();
+        //Integer type:
+        Queue<Integer> queue = new LinkedBlockingDeque<>(); // add size in paranthesis
+        queue.add(1); // cannot be null
+        queue.add(2);
+        queue.add(3);
+        queue.add(4);
+        queue.add(5);
+        queue.add(6);
+        //queue.offer(7) // skips if exception; returns boolean. adds to Q.
+        //queue.poll() // return boolean if something can be removed
+
+        //Dequeue
+        System.out.println("\nde-Q\n");
+        Deque<Integer> deque = new LinkedBlockingDeque<>();
+        deque.offer(1);
+        deque.offer(2);
+        System.out.println(deque);
+        deque.addFirst(0);
+        deque.removeLast();
+        System.out.println(deque);
+
+        //Maps
+        System.out.println("\nHashMap\n");
+        Map<String, String> map = new HashMap<>();
+        map.put("a1", "Christian");
+        map.put("a0", "John");
+        map.put("a3", "Sam");
+        System.out.println(map);
+        
+        for (String test: map.keySet()){
+            Sys
+        }
     }
 }
