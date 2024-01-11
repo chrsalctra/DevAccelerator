@@ -4,10 +4,12 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.HashSet;
 class Data { // Using Object wrapper class
     private Object object;
 
@@ -100,9 +102,14 @@ public class Main {
         map.put("a0", "John");
         map.put("a3", "Sam");
         System.out.println(map);
-        
-        for (String test: map.keySet()){
-            Sys
+        //Iterating
+        for (String key: map.keySet()){
+            System.out.println("key" + key + " Value: " + map.get(key));
         }
+        //or:
+        for (Map.Entry<String, String> entry : map.entrySet()){
+            System.err.println("key" + entry.getKey() + " Value: " + entry.getValue());
+        }
+        //see notes for comparator notes
     }
 }
