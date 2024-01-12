@@ -57,7 +57,7 @@ class Data2<K extends Integer, V extends String> { // Generics
         System.out.println("Element" + element + "\n" + "Number" + number);
     }
 }
-public class Main {
+public class Main1 {
     public static void main(String[] args){
         List<Data> elements = new LinkedList<>();
         elements.add(new Data("Chris"));
