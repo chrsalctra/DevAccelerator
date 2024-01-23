@@ -1,6 +1,6 @@
-package B;
+package Section_1_to_5.B;
 
-import A.Trip;
+import Section_1_to_5.A.Trip;
 
 public class Holiday {
 

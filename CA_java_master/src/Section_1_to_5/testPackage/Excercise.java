@@ -1,5 +1,5 @@
-package testPackage;
-import java.util.Arrays;
+package Section_1_to_5.testPackage;
+
 public class Excercise {
     public static void main(String[] args) {
         System.out.println(printResult());
