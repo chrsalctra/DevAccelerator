@@ -42,7 +42,7 @@ public class Threads implements Runnable{
         System.out.println("Thread is " + Thread.currentThread().getName());
         Threads obj = new Threads();
         Thread t1 = new Thread(obj);
-        t1.setName("a");
+        t1.setName("a");  
 //        Thread t2 = new Thread(obj);
 //        t2.setName("b");
 //        Thread t3 = new Thread(obj);
