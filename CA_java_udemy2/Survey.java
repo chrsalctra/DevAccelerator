@@ -27,7 +27,6 @@ public class Survey {
         System.out.println("Thank you <name> for answering all <counter> questions");
         System.out.println("Weekly, you spend $<totalPrice> on coffee");
         System.out.println("Weekly, you spend $<totalPrice> on food");
-
+        scanner.close();
     }
 }
-  
