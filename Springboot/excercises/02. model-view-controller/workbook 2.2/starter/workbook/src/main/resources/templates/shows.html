@@ -11,8 +11,8 @@
             <th>Episode</th>
             <th>Rating</th>
           </tr>
-          <tr>
-            <td>Breaking Bad</td>
+          <tr th:object = "${show1}">
+            <td th:text="*{title}"></td>
             <td>Ozymandias</td>
             <td>10.0</td>
           </tr>
