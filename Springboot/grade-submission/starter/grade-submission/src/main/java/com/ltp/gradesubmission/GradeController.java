@@ -17,7 +17,7 @@ public class GradeController {
     //for the form:
     List<Grade> studentGrades = new ArrayList<>();
     @GetMapping("/")
-    public String gradeForm(Model model) {
+    public String getForm(Model model) {
         model.addAttribute("grade", new Grade());
         return "form";
     }
