@@ -18,7 +18,7 @@ public class GradeController {
     List<Grade> studentGrades = new ArrayList<>();
     @GetMapping("/")
     public String getForm(Model model) {
-        model.addAttribute("grade", new Grade());
+       model.addAttribute("grade", new Grade());
         return "form";
     }
     @PostMapping("/handleSubmit")
@@ -26,7 +26,7 @@ public class GradeController {
                 //System.out.println(grade);
                 studentGrades.add(grade);
                 return "redirect:/grades"; // get request triggers below handler method
-            }
+            }             
     
     @GetMapping("/grades")
     public String getGrades(Model model) {
