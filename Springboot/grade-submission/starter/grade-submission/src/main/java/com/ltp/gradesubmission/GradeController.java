@@ -36,3 +36,4 @@ public class GradeController {
         return "grades";
     }
 }
+  
