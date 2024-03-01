@@ -27,7 +27,7 @@ public class GradeController {
                 studentGrades.add(grade);
                 return "redirect:/grades"; // get request triggers below handler method
             }             
-    
+       
     @GetMapping("/grades")
     public String getGrades(Model model) {
         model.addAttribute("grades", studentGrades);
