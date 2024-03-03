@@ -3,43 +3,34 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.*;
 
 @Controller
 public class GradeController {
 
-    // List<Grade> studentGrades = new ArrayList<>(); --> causes loop generation issue (repeats)
-    // List<Grade> studentGrades = Arrays.asList(
-    //     new Grade("Harry", "Potions", "C-"),
-    //     new Grade("Chris", "Arithmacy", "A-"),
-    //     new Grade("Harry", "Charms", "B+")
-    // ); //hard coded data
-    //for the form:
     List<Grade> studentGrades = new ArrayList<>();
     @GetMapping("/")
-    public String getForm(Model model, String name) {
-        Grade grade;
-        if (getGradeIndex(name) == -1000){
-            grade = new Grade();
-        } else {
-            grade = studentGrades.get(getGradeIndex(name));
-        }
-        //Grade grade = new Grade();
-       model.addAttribute("grade", new Grade());
+    public String getForm(Model model, @RequestParam(required = false) String name) {
+    model.addAttribute("grade", getGradeIndex(name) == -1000 ? new Grade(): studentGrades.get(getGradeIndex(name)) );
         return "form";
     }
     @PostMapping("/handleSubmit")
             public String submitForm(Grade grade){
-                //System.out.println(grade);
-                studentGrades.add(grade);
+                int index = getGradeIndex(grade.getName());
+                if (index == -1000) {
+                    studentGrades.add(grade);
+                } else {
+                    studentGrades.set(index, grade);
+                }
+                
                 return "redirect:/grades"; // get request triggers below handler method
             }             
        
     @GetMapping("/grades")
     public String getGrades(Model model) {
         model.addAttribute("grades", studentGrades);
-        // Grade grade = new Grade("Nevil", "Potions","C-" );
-        //model.addAttribute("grade", grade);
         return "grades";
     }
 
@@ -47,7 +38,7 @@ public class GradeController {
         for (int i = 0; i< studentGrades.size(); i++){
             if (studentGrades.get(i).getName().equals(name)) return i;
         }
-        return -1000; // just to get it working.
+        return -1000;
     }
 }
    
