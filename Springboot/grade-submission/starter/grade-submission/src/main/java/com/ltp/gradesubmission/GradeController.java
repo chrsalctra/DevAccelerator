@@ -17,7 +17,14 @@ public class GradeController {
     //for the form:
     List<Grade> studentGrades = new ArrayList<>();
     @GetMapping("/")
-    public String getForm(Model model) {
+    public String getForm(Model model, String name) {
+        Grade grade;
+        if (getGradeIndex(name) == -1000){
+            grade = new Grade();
+        } else {
+            grade = studentGrades.get(getGradeIndex(name));
+        }
+        //Grade grade = new Grade();
        model.addAttribute("grade", new Grade());
         return "form";
     }
@@ -34,6 +41,13 @@ public class GradeController {
         // Grade grade = new Grade("Nevil", "Potions","C-" );
         //model.addAttribute("grade", grade);
         return "grades";
+    }
+
+    public Integer getGradeIndex(String name) {
+        for (int i = 0; i< studentGrades.size(); i++){
+            if (studentGrades.get(i).getName().equals(name)) return i;
+        }
+        return -1000; // just to get it working.
     }
 }
    
